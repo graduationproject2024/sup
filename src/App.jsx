@@ -75,6 +75,16 @@ function App() {
     }
   };
 
+  const handleStartAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(e => console.log("Audio play failed:", e));
+    }
+  };
+
+  const handleFinishIntro = () => {
+    setShowIntro(false);
+  };
+
   const bonusMessages = messagesData.filter(m => m.isBonus);
   const regularMessages = messagesData.filter(m => !m.isBonus);
 
@@ -94,7 +104,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {showIntro && <IntroScreen onEnter={handleEnterIntro} />}
+      {showIntro && <IntroScreen onStartAudio={handleStartAudio} onFinish={handleFinishIntro} />}
       
       {/* Background Music. */}
       <audio ref={audioRef} loop src={musicFile}></audio>

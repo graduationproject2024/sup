@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import './IntroScreen.css';
 
-const IntroScreen = ({ onEnter }) => {
+const IntroScreen = ({ onStartAudio, onFinish }) => {
   const [show, setShow] = useState(true);
 
   const handleEnter = () => {
+    if (onStartAudio) onStartAudio(); // Synchronous audio play for iOS!
     setShow(false);
-    setTimeout(onEnter, 1000); // Wait for fade out
+    setTimeout(onFinish, 800); // Wait for fade out
   };
 
   return (
@@ -17,8 +18,8 @@ const IntroScreen = ({ onEnter }) => {
         <motion.div 
           className="intro-container"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-          transition={{ duration: 1 }}
+          exit={{ opacity: 0, scale: 1.1 }}
+          transition={{ duration: 0.8 }}
         >
           {/* Floating Hearts Background */}
           <div className="floating-hearts">
@@ -41,7 +42,7 @@ const IntroScreen = ({ onEnter }) => {
             className="intro-content glass"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
             <h1>إلى آية</h1>
             <p className="intro-quote">"أنتِ أجمل صدفة في حياتي، وأغلى نعمة ربنا رزقني بيها."</p>

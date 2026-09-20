@@ -79,7 +79,8 @@ function App() {
   const regularMessages = messagesData.filter(m => !m.isBonus);
 
   const groupedByMonth = regularMessages.reduce((acc, msg) => {
-    const date = new Date(msg.date);
+    const safeDate = msg.date.replace(/-/g, '/');
+    const date = new Date(safeDate);
     const month = date.toLocaleString('ar-EG', { month: 'long' });
     const year = date.getFullYear();
     const key = `${month} ${year}`;

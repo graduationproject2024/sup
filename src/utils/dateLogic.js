@@ -1,5 +1,5 @@
-export const START_DATE = new Date('2026-09-21T12:00:00+03:00'); // 12:00 PM Cairo/Riyadh time
-
+// 2026, Month 8 (September), Day 21, 12:00:00 PM
+export const START_DATE = new Date(2026, 8, 21, 12, 0, 0); 
 export function getUnlockTimeForDay(dayIndex) {
   if (dayIndex < 6) return new Date(0); // Bonus messages are always unlocked
   const unlockTime = new Date(START_DATE.getTime());

@@ -80,3 +80,19 @@
 .puzzle-button:hover {
   box-shadow: 0 10px 30px rgba(209, 48, 84, 0.6);
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 25px 20px;
+    width: 95%;
+  }
+  .modal-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  .modal-close-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}

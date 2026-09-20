@@ -122,3 +122,32 @@
 .envelope-wrapper.opened .envelope-date {
   transform: translateY(10px);
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .envelope {
+    width: 60px;
+    height: 40px;
+  }
+  .envelope-front {
+    border-left: 30px solid rgba(255,255,255,0.1);
+    border-right: 30px solid rgba(255,255,255,0.1);
+    border-bottom: 25px solid rgba(255,255,255,0.15);
+    border-top: 20px solid transparent;
+  }
+  .envelope-flap {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 25px solid rgba(255,255,255,0.3);
+    border-bottom: 20px solid transparent;
+  }
+  .envelope-date {
+    font-size: 0.75rem;
+  }
+  .paper-content {
+    font-size: 0.8rem;
+  }
+  .lock-icon {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}

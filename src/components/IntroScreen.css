@@ -93,3 +93,25 @@
     opacity: 0;
   }
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .intro-content {
+    padding: 30px 20px;
+    width: 90%;
+  }
+  .intro-content h1 {
+    font-size: 2.5rem;
+  }
+  .intro-quote {
+    font-size: 1.2rem;
+  }
+  .intro-sub {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  .enter-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+}

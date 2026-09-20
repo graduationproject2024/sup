@@ -173,3 +173,20 @@
     transform: translateY(0);
   }
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .app-container { padding: 10px; }
+  .header { padding: 20px 10px; margin-bottom: 20px; }
+  .header h1 { 
+    font-size: 1.8rem; 
+    flex-direction: column; 
+    gap: 5px; 
+    margin-top: 50px; 
+  }
+  .top-controls { top: 15px; left: 15px; }
+  .icon-btn { width: 35px; height: 35px; }
+  .mailbox-section h2, .puzzle-section h2 { font-size: 1.5rem; }
+  .envelopes-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 10px; }
+  .month-group h3 { font-size: 1.2rem; }
+}

@@ -77,7 +77,10 @@ function App() {
 
   const handleStartAudio = () => {
     if (audioRef.current) {
-      audioRef.current.play().catch(e => console.log("Audio play failed:", e));
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(e => console.log("Audio play failed:", e));
+      }
     }
   };
 

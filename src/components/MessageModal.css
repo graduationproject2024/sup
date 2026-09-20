@@ -1,0 +1,82 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  background: var(--modal-bg);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(223, 177, 96, 0.3);
+}
+
+.special-message {
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 30px rgba(223, 177, 96, 0.4);
+}
+
+.modal-header h3 {
+  color: var(--gold);
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.modal-date {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.modal-body p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.puzzle-hint {
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.puzzle-button {
+  background: var(--primary-color);
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(209, 48, 84, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.puzzle-button:hover {
+  box-shadow: 0 10px 30px rgba(209, 48, 84, 0.6);
+}

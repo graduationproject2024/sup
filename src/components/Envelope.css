@@ -1,0 +1,124 @@
+.envelope-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+  perspective: 1000px; /* For 3D flap effect */
+}
+
+.envelope {
+  position: relative;
+  width: 80px;
+  height: 55px;
+  background: var(--envelope-locked);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.envelope-wrapper.unlocked .envelope {
+  background: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(209, 48, 84, 0.4);
+}
+
+.envelope-wrapper.unlocked:hover .envelope {
+  box-shadow: 0 8px 20px rgba(209, 48, 84, 0.6);
+}
+
+.envelope-wrapper.locked .envelope {
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.envelope-wrapper.opened .envelope {
+  background: var(--gold);
+}
+
+/* Envelope Parts */
+.envelope-back {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.envelope-front {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 3;
+  /* Create the folded bottom/sides using borders */
+  border-left: 40px solid rgba(255,255,255,0.1);
+  border-right: 40px solid rgba(255,255,255,0.1);
+  border-bottom: 30px solid rgba(255,255,255,0.15);
+  border-top: 25px solid transparent;
+  border-radius: 4px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 4;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 30px solid rgba(255,255,255,0.3);
+  border-bottom: 25px solid transparent;
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+.envelope-paper {
+  position: absolute;
+  top: 5px;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: #fdf5e6; /* light paper color */
+  border-radius: 3px;
+  z-index: 2;
+  transition: transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.paper-content {
+  font-size: 1rem;
+}
+
+/* Open Animation */
+.envelope-wrapper.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Move behind paper */
+}
+
+.envelope-wrapper.opened .envelope-paper {
+  transform: translateY(-20px);
+  z-index: 5;
+}
+
+/* Locked icon */
+.lock-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+.envelope-date {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-family: 'Amiri', serif;
+  margin-top: 15px;
+  transition: all 0.3s;
+}
+
+.envelope-wrapper.opened .envelope-date {
+  transform: translateY(10px);
+}

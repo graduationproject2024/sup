@@ -1,0 +1,175 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-shadow: 0 0 20px rgba(209, 48, 84, 0.4);
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.top-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.icon-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--gold);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.progress-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  height: calc(100vh - 200px);
+}
+
+.mailbox-section {
+  flex: 1;
+  border-radius: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mailbox-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 15px;
+}
+
+.months-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.month-group h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.envelopes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 15px;
+}
+
+.puzzle-section {
+  flex: 1.2;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.puzzle-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  .puzzle-section {
+    min-height: 50vh;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

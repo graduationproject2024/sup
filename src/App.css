@@ -155,11 +155,14 @@
 
 @media (max-width: 900px) {
   .main-layout {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
   }
+  .mailbox-section {
+    max-height: 450px;
+  }
   .puzzle-section {
-    min-height: 50vh;
+    min-height: auto;
   }
 }
 

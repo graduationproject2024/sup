@@ -20,6 +20,7 @@ const PuzzleBoard = ({ openedPieces, totalPieces, flyingPiece }) => {
     <div className="puzzle-board-wrapper" ref={boardRef}>
       <div className="aspect-ratio-setter">
         <img src={coupleImg} alt="aspect-ratio" className="hidden-img" />
+        <img src={coupleImg} alt="puzzle-bg" className="puzzle-bg-image" />
         <div className="puzzle-grid">
         {pieces.map((pieceIndex) => {
           // Extra pieces beyond 365 are shown ONLY when all messages are opened
@@ -34,13 +35,15 @@ const PuzzleBoard = ({ openedPieces, totalPieces, flyingPiece }) => {
           
           return (
             <div key={pieceIndex} className="puzzle-slot">
-              {(isOpened || isFlying) && (
+              <div className={`puzzle-cover ${isOpened || isFlying ? 'hidden' : ''}`} />
+              
+              {isFlying && (
                 <motion.div
-                  className={`puzzle-piece ${isFlying ? 'flying' : ''}`}
+                  className="puzzle-piece flying"
                   style={{
                     backgroundPosition: `${bgPosX}% ${bgPosY}%`
                   }}
-                  initial={isFlying ? {
+                  initial={{
                     position: 'fixed',
                     top: '50%',
                     left: '50%',
@@ -51,18 +54,18 @@ const PuzzleBoard = ({ openedPieces, totalPieces, flyingPiece }) => {
                     zIndex: 9999,
                     borderRadius: '10px',
                     boxShadow: '0 0 30px rgba(209, 48, 84, 0.8)'
-                  } : {}}
-                  animate={isFlying ? {
+                  }}
+                  animate={{
                     position: 'absolute',
                     top: 0, left: 0, x: 0, y: 0,
                     width: '100%', height: '100%',
                     borderRadius: '0px',
                     boxShadow: '0 0 0px rgba(0,0,0,0)'
-                  } : {}}
-                  transition={isFlying ? {
+                  }}
+                  transition={{
                     duration: 1.5,
                     ease: [0.25, 0.1, 0.25, 1]
-                  } : {}}
+                  }}
                 />
               )}
             </div>

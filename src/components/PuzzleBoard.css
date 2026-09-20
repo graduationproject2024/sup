@@ -43,6 +43,32 @@
   /* border: 1px solid rgba(255,255,255,0.02); */
 }
 
+.puzzle-bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.puzzle-cover {
+  width: 100%;
+  height: 100%;
+  background: rgba(28, 15, 22, 0.98); /* matches dark theme */
+  transition: opacity 1s ease;
+  z-index: 2;
+  position: relative;
+  /* Optional: faint borders to see pieces */
+  border-right: 1px solid rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.puzzle-cover.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .puzzle-piece {
   position: absolute;
   top: 0;
@@ -52,6 +78,7 @@
   background-image: url('../assets/couple.jpeg');
   background-size: 1900% 2000%; /* 19 cols * 100, 20 rows * 100 */
   background-repeat: no-repeat;
+  z-index: 3;
 }
 
 .puzzle-instruction {

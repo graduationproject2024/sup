@@ -126,6 +126,15 @@
   color: var(--gold);
   margin-bottom: 15px;
   font-size: 1.5rem;
+  padding: 10px 15px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.month-group h3:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .envelopes-grid {

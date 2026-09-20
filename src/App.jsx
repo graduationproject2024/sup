@@ -67,6 +67,8 @@ function App() {
     }
   };
 
+  const [expandedMonth, setExpandedMonth] = useState(null);
+
   const handleCloseModal = () => {
     if (selectedMessage) {
       setFlyingPiece(selectedMessage.pieceIndex);
@@ -152,20 +154,32 @@ function App() {
                 </div>
               </div>
             )}
-            {Object.entries(groupedByMonth).map(([monthName, msgs]) => (
-              <div key={monthName} className="month-group">
-                <h3>{monthName}</h3>
-                <div className="envelopes-grid">
-                  {msgs.map((msg) => (
-                    <Envelope 
-                      key={msg.id}
-                      message={msg}
-                      isOpened={openedDays.includes(msg.id)}
-                      isUnlocked={isDayUnlocked(msg.id)}
-                      onOpen={() => handleOpenEnvelope(msg)}
-                    />
-                  ))}
-                </div>
+            {Object.entries(groupedByMonth).map(([monthYear, msgs]) => (
+              <div key={monthYear} className="month-group">
+                <h3 
+                  onClick={() => setExpandedMonth(expandedMonth === monthYear ? null : monthYear)}
+                  style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                >
+                  {monthYear}
+                  <span>{expandedMonth === monthYear ? '▲' : '▼'}</span>
+                </h3>
+                {expandedMonth === monthYear && (
+                  <div className="envelopes-grid">
+                    {msgs.map((msg) => {
+                      const isUnlocked = isDayUnlocked(msg.id);
+                      const hasOpened = openedDays.includes(msg.id);
+                      return (
+                        <Envelope 
+                          key={msg.id}
+                          message={msg}
+                          isUnlocked={isUnlocked}
+                          isOpened={hasOpened}
+                          onOpen={() => handleOpenEnvelope(msg)}
+                        />
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             ))}
           </div>

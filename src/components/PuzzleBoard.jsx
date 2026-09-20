@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import coupleImg from '../assets/couple.jpeg';
 import './PuzzleBoard.css';
 
 const COLS = 19;
@@ -18,7 +19,7 @@ const PuzzleBoard = ({ openedPieces, totalPieces, flyingPiece }) => {
   return (
     <div className="puzzle-board-wrapper" ref={boardRef}>
       <div className="aspect-ratio-setter">
-        <img src="/couple.jpeg" alt="aspect-ratio" className="hidden-img" />
+        <img src={coupleImg} alt="aspect-ratio" className="hidden-img" />
         <div className="puzzle-grid">
         {pieces.map((pieceIndex) => {
           // Extra pieces beyond 365 are shown ONLY when all messages are opened

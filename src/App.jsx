@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import messagesData from './data/messages.json';
 import { isDayUnlocked, calculateTimeRemaining } from './utils/dateLogic';
+import musicFile from './assets/music.mp3';
 import Envelope from './components/Envelope';
 import PuzzleBoard from './components/PuzzleBoard';
 import MessageModal from './components/MessageModal';
@@ -95,7 +96,7 @@ function App() {
       {showIntro && <IntroScreen onEnter={handleEnterIntro} />}
       
       {/* Background Music. */}
-      <audio ref={audioRef} loop src="/music.mp3"></audio>
+      <audio ref={audioRef} loop src={musicFile}></audio>
 
       <header className="glass header">
         <div className="top-controls">

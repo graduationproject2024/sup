@@ -49,7 +49,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/couple.jpeg');
+  background-image: url('../assets/couple.jpeg');
   background-size: 1900% 2000%; /* 19 cols * 100, 20 rows * 100 */
   background-repeat: no-repeat;
 }
